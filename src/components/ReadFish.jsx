@@ -22,9 +22,9 @@ const ReadFish = ({ type }) => {
         <LinearGradient colors={["#0470ec", "#012355"]} style={{width: '100%', height: '100%'}}>
             <View style={styles.container}>
 
-            <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
+            <View style={styles.back} onPress={() => navigation.goBack('')}>
                 <Icons type={'back'} />
-            </TouchableOpacity>
+            </View>
 
             <Image source={require('../assets/decor/little-fisher.png')} style={{width: 84, height: 113, resizeMode: 'contain', position: 'absolute', top: height * 0.07, right: 0}} />
             <Image source={require('../assets/decor/hook.png')} style={{width: 58, height: 123, resizeMode: 'contain', position: 'absolute', top: height * 0.05, right: '41%'}} />
