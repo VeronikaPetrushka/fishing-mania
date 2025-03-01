@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
     btn: {
         width: 167,
-        height: 167,
+        height: height * 0.18,
         resizeMode: 'contain',
         marginBottom: 20
     },

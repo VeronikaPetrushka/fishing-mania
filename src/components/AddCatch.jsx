@@ -86,90 +86,94 @@ const AddCatch = () => {
         <LinearGradient colors={["#0470ec", "#012355"]} style={{width: '100%', height: '100%'}}>
             <View style={styles.container}>
 
-                {
-                    images.length > 0 && (
-                        <ScrollView key={images.length} horizontal style={{maxHeight: 180, marginBottom: 20}}>
-                            {
-                                images.map((image, index) => (
-                                    <Image key={index} source={{uri: image}} style={{width: 167, height: 167, borderRadius: 27, margin: 5, resizeMode: 'cover'}} />
-                                ))
-                            }
-                        </ScrollView>
-                    )
-                }
+                <ScrollView style={{width: '100%'}} contentContainerStyle={{alignItems: 'center'}}>
+                    {
+                        images.length > 0 && (
+                            <ScrollView key={images.length} horizontal style={{maxHeight: 180, marginBottom: 20}}>
+                                {
+                                    images.map((image, index) => (
+                                        <Image key={index} source={{uri: image}} style={{width: 167, height: 167, borderRadius: 27, margin: 5, resizeMode: 'cover'}} />
+                                    ))
+                                }
+                            </ScrollView>
+                        )
+                    }
 
-                {
-                    images.length > 0  && (
-                        <View style={{width: '100%', borderWidth: 1.5, borderColor: '#f2b33e', marginBottom: 20}} />
-                    )
-                }
+                    {
+                        images.length > 0  && (
+                            <View style={{width: '100%', borderWidth: 1.5, borderColor: '#f2b33e', marginBottom: 20}} />
+                        )
+                    }
 
-                {
-                    images.length > 0 && (
-                        <TouchableOpacity style={styles.uploadBtn} onPress={uploadImage}>
-                            <LinearGradient colors={["#7bcffe", "#275585"]} style={styles.uploadBtn}>
-                                <Text style={styles.uploadBtnText}>Add photo</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                    )
-                }
-
-                <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20}}>
-                    <Text style={styles.label}>Weight (kg)</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="0"
-                        placeholderTextColor="#fff"
-                        value={weight}
-                        onChangeText={setWeight}
-                    />
-                </View>
-                <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20}}>
-                    <Text style={styles.label}>Length (cm)</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="0"
-                        placeholderTextColor="#fff"
-                        value={length}
-                        onChangeText={setLength}
-                    />
-                </View>
-
-                {
-                    images.length === 0 && (
-                        <View style={styles.imageBtnContainer}>
-                            <Image source={require('../assets/decor/image.png')} style={{width: 74, height: 74, resizeMode: 'contain', marginBottom: 22}} />
+                    {
+                        images.length > 0 && (
                             <TouchableOpacity style={styles.uploadBtn} onPress={uploadImage}>
                                 <LinearGradient colors={["#7bcffe", "#275585"]} style={styles.uploadBtn}>
                                     <Text style={styles.uploadBtnText}>Add photo</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
-                        </View>    
-                    )
-                }
+                        )
+                    }
 
-                <TouchableOpacity style={styles.dateBtn} onPress={showDatePicker}>
-                    <Text style={styles.dateBtnText}>{formattedDate}</Text>
-                </TouchableOpacity>
+                    <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20}}>
+                        <Text style={styles.label}>Weight (kg)</Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="0"
+                            placeholderTextColor="#fff"
+                            value={weight}
+                            onChangeText={setWeight}
+                        />
+                    </View>
+                    <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20}}>
+                        <Text style={styles.label}>Length (cm)</Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="0"
+                            placeholderTextColor="#fff"
+                            value={length}
+                            onChangeText={setLength}
+                        />
+                    </View>
 
-                {showPicker && (
-                    <DateTimePicker 
-                        value={date} 
-                        mode="date" 
-                        display="spinner" 
-                        themeVariant="dark"
-                        onChange={onChange} 
+                    {
+                        images.length === 0 && (
+                            <View style={styles.imageBtnContainer}>
+                                <Image source={require('../assets/decor/image.png')} style={{width: 74, height: 74, resizeMode: 'contain', marginBottom: 22}} />
+                                <TouchableOpacity style={styles.uploadBtn} onPress={uploadImage}>
+                                    <LinearGradient colors={["#7bcffe", "#275585"]} style={styles.uploadBtn}>
+                                        <Text style={styles.uploadBtnText}>Add photo</Text>
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                            </View>    
+                        )
+                    }
+
+                    <TouchableOpacity style={styles.dateBtn} onPress={showDatePicker}>
+                        <Text style={styles.dateBtnText}>{formattedDate}</Text>
+                    </TouchableOpacity>
+
+                    {showPicker && (
+                        <DateTimePicker 
+                            value={date} 
+                            mode="date" 
+                            display="spinner" 
+                            themeVariant="dark"
+                            onChange={onChange} 
+                        />
+                    )}
+
+                    <TextInput
+                        style={styles.textInput}
+                        placeholder="Text"
+                        placeholderTextColor="#fff"
+                        value={text}
+                        onChangeText={setText}
+                        multiline
                     />
-                )}
 
-                <TextInput
-                    style={styles.textInput}
-                    placeholder="Text"
-                    placeholderTextColor="#fff"
-                    value={text}
-                    onChangeText={setText}
-                    multiline
-                />
+                    <View style={{height: 100}} />
+                </ScrollView>
 
                 <TouchableOpacity style={styles.btn} onPress={handleAddCatch}>
                     <LinearGradient colors={["#7bcffe", "#275585"]} style={styles.btn}>

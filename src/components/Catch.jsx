@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 20,
+        fontSize: height * 0.022,
         fontWeight: '500',
         color: '#fff',
         lineHeight: 24,

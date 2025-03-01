@@ -22,9 +22,9 @@ const ReadSeasons = ({ type }) => {
         <LinearGradient colors={["#0470ec", "#012355"]} style={{width: '100%', height: '100%'}}>
             <View style={styles.container}>
 
-            <View style={styles.back} onPress={() => navigation.goBack('')}>
+            <TouchableOpacity style={styles.back} onPress={() => navigation.goBack('')}>
                 <Icons type={'back'} />
-            </View>
+            </TouchableOpacity>
 
             <Image source={require('../assets/decor/little-fisher.png')} style={{width: 84, height: 113, resizeMode: 'contain', position: 'absolute', top: height * 0.07, right: 0}} />
             <Image source={require('../assets/decor/hook.png')} style={{width: 58, height: 123, resizeMode: 'contain', position: 'absolute', top: height * 0.05, right: '41%'}} />
@@ -89,13 +89,13 @@ const styles = StyleSheet.create({
 
     imageContainer: {
         width: width,
-        height: 394,
+        height: height * 0.6,
         alignItems: "center",
     },
 
     image: {
         width: '100%',
-        height: 394,
+        height: height * 0.5,
         resizeMode: "contain",
     },
 
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         alignItems: 'center',
         position: 'absolute',
-        top: 530
+        top: height * 0.6
     },
 
     dot: {
