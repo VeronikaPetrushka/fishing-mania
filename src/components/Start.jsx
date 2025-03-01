@@ -39,8 +39,7 @@ const First = () => {
         } else {
             setIndex((prevIndex) => (prevIndex + 1) % 2);
             if(index === 1) {
-                handleCreateProfile()
-                navigation.navigate('EncyclopediaScreen')
+                handleCreateProfile();
             }    
         }
     };
@@ -61,10 +60,11 @@ const First = () => {
     };
 
     const handleCreateProfile = async () => {
-        if (!nickname || !age || image) {
+        if (!nickname || !age || !image) {
             Alert.alert("Error", "Please fill in all fields to create your account");
             return;
-        }        try {
+        }        
+        try {
             const profileData = {
                 image: image,
                 nickname,
@@ -72,6 +72,7 @@ const First = () => {
             };
             await AsyncStorage.setItem("account", JSON.stringify(profileData));
             setProfile(true);
+            navigation.navigate('EncyclopediaScreen')
             console.log("Profile saved:", profileData);
         } catch (error) {
             console.error("Error saving profile:", error);
