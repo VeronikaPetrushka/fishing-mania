@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { View, Text, TouchableOpacity, Image, StyleSheet, Dimensions, TextInput } from "react-native"
+import { View, Text, TouchableOpacity, Image, StyleSheet, Dimensions, TextInput, Alert } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { launchImageLibrary } from "react-native-image-picker";
 import LinearGradient from "react-native-linear-gradient";
@@ -61,7 +61,10 @@ const First = () => {
     };
 
     const handleCreateProfile = async () => {
-        try {
+        if (!nickname || !age || image) {
+            Alert.alert("Error", "Please fill in all fields to create your account");
+            return;
+        }        try {
             const profileData = {
                 image: image,
                 nickname,

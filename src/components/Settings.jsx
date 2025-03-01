@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { View, Text, TouchableOpacity, Alert, StyleSheet, Dimensions, Image, Switch } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LinearGradient from "react-native-linear-gradient";
@@ -13,7 +13,8 @@ const Settings = () => {
     const resetProgress = async () => {
         try {
             await AsyncStorage.removeItem("catches");
-            Alert.alert("Success", "All catches have been reset.");
+            await AsyncStorage.removeItem("account");
+            Alert.alert("Success", "All catches along with your account have been reset.");
         } catch (error) {
             console.error("Failed to reset progress", error);
             Alert.alert("Error", "Failed to reset catches.");
